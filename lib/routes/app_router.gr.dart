@@ -14,12 +14,12 @@ part of 'app_router.dart';
 /// [CryptoCoinScreen]
 class CryptoCoinRoute extends PageRouteInfo<CryptoCoinRouteArgs> {
   CryptoCoinRoute({
-    required String coinName,
+    required CryptoCoinModel coin,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
          CryptoCoinRoute.name,
-         args: CryptoCoinRouteArgs(coinName: coinName, key: key),
+         args: CryptoCoinRouteArgs(coin: coin, key: key),
          initialChildren: children,
        );
 
@@ -29,32 +29,32 @@ class CryptoCoinRoute extends PageRouteInfo<CryptoCoinRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<CryptoCoinRouteArgs>();
-      return CryptoCoinScreen(coinName: args.coinName, key: args.key);
+      return CryptoCoinScreen(coin: args.coin, key: args.key);
     },
   );
 }
 
 class CryptoCoinRouteArgs {
-  const CryptoCoinRouteArgs({required this.coinName, this.key});
+  const CryptoCoinRouteArgs({required this.coin, this.key});
 
-  final String coinName;
+  final CryptoCoinModel coin;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'CryptoCoinRouteArgs{coinName: $coinName, key: $key}';
+    return 'CryptoCoinRouteArgs{coin: $coin, key: $key}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CryptoCoinRouteArgs) return false;
-    return coinName == other.coinName && key == other.key;
+    return coin == other.coin && key == other.key;
   }
 
   @override
-  int get hashCode => coinName.hashCode ^ key.hashCode;
+  int get hashCode => coin.hashCode ^ key.hashCode;
 }
 
 /// generated route for

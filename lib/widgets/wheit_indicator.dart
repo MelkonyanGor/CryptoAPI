@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_api/themes/themes.dart';
 
 class WheitIndicator extends StatefulWidget {
   const WheitIndicator({super.key});
-
 
   @override
   State<WheitIndicator> createState() => _WheitIndicatorState();
@@ -25,7 +23,7 @@ class _WheitIndicatorState extends State<WheitIndicator> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Themes().themeData;
+    final theme = Theme.of(context);
     return Center(
       child: _isLoading
           ? CircularProgressIndicator(color: theme.tabBarTheme.indicatorColor)
