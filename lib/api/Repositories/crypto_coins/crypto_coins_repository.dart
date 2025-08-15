@@ -4,7 +4,7 @@ import 'package:rick_and_morty_api/api/Repositories/models/crypto_coin_model.dar
 class CryptoCoinsRepository {
   Future<List<CryptoCoinModel>> getCryptoCoins() async {
     final response = await Dio().get(
-      'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB&tsyms=USD',
+      'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB,AID,CAG,DOV,SOL&tsyms=USD',
     );
     if (response.data != null && response.data is Map<String, dynamic>) {
       final data = response.data as Map<String, dynamic>;
